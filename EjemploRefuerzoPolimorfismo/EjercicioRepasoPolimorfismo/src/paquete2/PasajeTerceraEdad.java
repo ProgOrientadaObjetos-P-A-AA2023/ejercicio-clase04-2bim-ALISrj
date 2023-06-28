@@ -15,6 +15,10 @@ public class PasajeTerceraEdad extends PasajeUrbano {
         super(pasaje);
     }
     
+    @Override
+    public void establecerValorPasaje() {
+        valorPasaje = valorFijo - (0.5*valorFijo);
+    }
        
     @Override
     public String toString(){

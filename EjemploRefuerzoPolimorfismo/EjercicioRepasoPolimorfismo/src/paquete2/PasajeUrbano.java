@@ -51,11 +51,11 @@ public abstract class PasajeUrbano{
     @Override
     public String toString(){
         return String.format("Pasajero: %s\n"
-                    + "Cédula: %s\n"
+                    + "Apellido: %s\n"
                     + "Valor Pasaje: %.2f\n"
                     + "---------------------\n",
                     obtenerPersona().obtenerNombre(),
-                    obtenerPersona().obtenerCedula(),
+                    obtenerPersona().obtenerApellido(),
                     obtenerValorPasaje());
     }
     

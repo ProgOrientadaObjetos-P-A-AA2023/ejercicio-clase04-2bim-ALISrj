@@ -17,7 +17,7 @@ public class Ejecutor2 {
         String[] apellidos = {"Martinez", "Lyons", "Kim", "Tate", "Lee"};
         int[] edad = {9, 70, 35, 23, 10};
         double pasajeFijo = 0.4;
-        
+
         /*
         Generar un proceso que permita iterar los arreglos; el objetivo es 
         crear objetos de tipo Pasaje Menor de edad, Pasaje Normal, Pasaje 
@@ -35,17 +35,49 @@ public class Ejecutor2 {
         normal: mayor a 25 y menor 65
         tercera edad: mayor o igual a 65
         
-        */
+         */
         // inicio de solución
-        
-        
+        for (int i = 0; i < nombres.length; i++) {
+
+            String nombre = nombres[i];
+            String apellido = apellidos[i];
+            int edadPersona = edad[i];
+
+            Persona p = new Persona(nombre, apellido, edadPersona);
+            
+            PasajeUrbano pa = null;
+            
+            if (edadPersona >= 0 && edadPersona <= 18) {
+
+                pa = new PasajeMenorEdad(pasajeFijo);
+                pa.establecerPersona(p);
+                
+            } else if (edadPersona > 18 && edadPersona <= 25) {
+
+                pa = new PasajeUniversitario(pasajeFijo);
+                pa.establecerPersona(p);
+                
+            } else if (edadPersona > 25 && edadPersona < 65) {
+
+                pa = new PasajeNormal(pasajeFijo);
+                pa.establecerPersona(p);
+                
+            } else if (edadPersona > 65) {
+
+                pa = new PasajeTerceraEdad(pasajeFijo);
+                pa.establecerPersona(p);
+                
+            }
+            
+            pasajes.add(pa);
+        }
+
         // fin  de solución
-        
         // no incrementar líneas de código desde aquí
         for (int i = 0; i < pasajes.size(); i++) {
             pasajes.get(i).establecerValorPasaje();
         }
-        
+
         for (int i = 0; i < pasajes.size(); i++) {
             System.out.printf("%s\n",
                     pasajes.get(i));
